@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interativo de Votos - Pelotas 2024</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <style>
+        body, html {
+            font-family: 'Karla', serif;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estilos do header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #690000;
+            color: white;
+            text-align: left;
+            padding: 2px;
+            font-size: 20px;
+            font-family: 'Handjet', serif; 
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .interativo {
+            color: rgb(255, 206, 116);
+        }
+
+        .email {
+            color: white;
+            text-decoration: none;
+        }
+        /* Mídia query para telas menores que 768px */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: left; /* Alinhar o texto à esquerda, caso necessário */
+            }
+
+            .interativo, .email {
+                margin-top: 10px; /* Espaçamento entre os itens quando em coluna */
+            }
+        }
+        
+        #map-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        #info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #locais {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 300px;
+            max-height: 70%;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        select {
+            width: 100%;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 5px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        h3 {
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>Mapa<span class="interativo">Interativo</span>deVotos-<span class="interativo">Pelotas</span>-2024</div>
+        <div>Vereadores</div>
+        <div><a href="contato.viajaum@gmail.com" class="email">contato.viajaum@gmail.com</a></div>
+    </header>
+    <div id="map-container">
+        <div id="map">{{ map_html|safe }}</div>
+        <div id="info">
+            <form method="GET">
+                <label for="candidato">Candidato:</label>
+                <select name="candidato" id="candidato" onchange="this.form.submit()">
+                    {% for candidato in candidatos %}
+                        <option value="{{ candidato }}" {% if candidato == candidato_selecionado %}selected{% endif %}>
+                            {{ candidato }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+        <div id="locais">
+            <p><strong>Total de Votos:</strong> {{ total_votos_candidato }}</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Local</th>
+                        <th>Votos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for local in lista_locais %}
+                        <tr>
+                            <td>{{ local['LOCAL'] }} ({{ local['TOTAL_VOTOS_LOCAL'] }})</td>
+                            <td>{{ local['VOTOS_CANDIDATO'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

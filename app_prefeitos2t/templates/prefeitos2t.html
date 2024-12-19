@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interativo de Votos - Pelotas 2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap">
+
+    <style>
+        body, html {
+            font-family: 'Karla', serif;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #690000;
+            color: white;
+            text-align: left;
+            padding: 2px;
+            font-family: 'Handjet', serif; 
+            font-size: 20px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .interativo {
+            color: rgb(255, 206, 116);
+        }
+
+        .email {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Mídia query para telas menores que 768px */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: left; /* Alinhar o texto à esquerda, caso necessário */
+            }
+
+            .interativo, .email {
+                margin-top: 10px; /* Espaçamento entre os itens quando em coluna */
+            }
+        }
+
+        #map-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>Mapa<span class="interativo">Interativo</span>deVotos-Pelotas-2024</div>
+        <div>Prefeito-<span class="interativo">2ºturno</span></div>
+        <div><a href="mailto:contato.viajaum@gmail.com" class="email">contato.viajaum@gmail.com</a></div>
+    </header>
+    <div id="map-container">
+        <div id="map">{{ map_html_prefeitos|safe }}</div>
+    </div>
+</body>
+</html>

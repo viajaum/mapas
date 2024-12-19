@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interativo de Votos - Pelotas 2024</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Karla', serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/fundo.png');
+            background-size: cover; /* Faz com que a imagem cubra toda a tela */
+            background-position: center center; /* Centraliza a imagem */
+            background-attachment: fixed; /* Fixar a imagem no fundo */
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Handjet', serif; 
+            font-size: 30px;
+            background-color: #690000;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .interativo {
+            color: rgb(255, 206, 116);
+        }
+
+        .email {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Mídia query para telas menores que 768px */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: left; /* Alinhar o texto à esquerda, caso necessário */
+            }
+
+            .interativo, .email {
+                margin-top: 10px; /* Espaçamento entre os itens quando em coluna */
+            }
+        }
+        .content {
+            margin: 20px;
+            
+        }
+        .links {
+            list-style: none;
+            padding: 10px;
+            display: flex; /* Ativa o Flexbox */
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .links li {
+            margin: 10px 0;
+            text-decoration: none;
+
+        }
+        .links a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .button-container {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 8px; /* Bordas arredondadas */
+            background-color: #690000; /* Fundo transparente */
+            transition: 0.3s; /* Transição suave */
+        }
+
+        .button-container:hover {
+            background-color: #3b0000; /* Cor de fundo quando passar o mouse */
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: #ffffff; /* Cor do texto do botão */
+            font-size: 20px;
+            font-weight: bold;
+            padding: 2px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .button-container:hover a {
+            color: white; /* Cor do texto quando passar o mouse */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>Mapa<span class="interativo">Interativo</span>deVotos-<span class="interativo">Pelotas</span>-2024</div>
+        <div><a href="contato.viajaum@gmail.com" class="email">contato.viajaum@gmail.com</a></div>
+    </header>
+
+    <div class="content">
+        <ul class="links">
+
+            <div class="button-container">
+                <li><a href="http://127.0.0.1:5000/vereadores/mapa_vereadores" target="_blank">Vereadores</a></li>
+            </div>
+
+            <div class="button-container">
+                <li><a href="http://127.0.0.1:5000/prefeitos1t/mapa_prefeitos1t" target="_blank">Prefeito - 1º Turno</a></li>
+            </div>
+
+            <div class="button-container">
+                <li><a href="http://127.0.0.1:5000/prefeitos2t/mapa_prefeitos2t" target="_blank">Prefeito - 2º Turno</a></li>
+            </div>
+
+        </ul>
+    </div>
+</body>
+</html>
