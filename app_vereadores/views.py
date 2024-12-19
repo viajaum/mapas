@@ -5,6 +5,8 @@ from . import vereadores_bp  # Importa o Blueprint
 
 @vereadores_bp.route("/mapa_vereadores")
 def mapa_vereadores():
+    pass
+
     csv_path = '1tpelotas.csv'
     try:
         locais_votos = pd.read_csv(csv_path)

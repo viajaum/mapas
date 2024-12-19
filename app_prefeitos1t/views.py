@@ -24,6 +24,7 @@ cores_candidatos = {
 # Rota do Blueprint para o mapa
 @prefeitos1t.route('/mapa_prefeitos1t')
 def mapa_prefeitos1t():
+    pass
     
     # Ler o CSV
     csv_path = '1tpelotas.csv'

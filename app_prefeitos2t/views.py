@@ -18,6 +18,8 @@ cores_candidatos = {
 
 @mapa_bp.route("/mapa_prefeitos2t")
 def mapa_prefeitos2t():
+    pass
+
     csv_path = '2tpelotas.csv'
     try:
         locais_votos = pd.read_csv(csv_path)
