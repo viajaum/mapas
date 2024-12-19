@@ -1,0 +1,31 @@
+# Mapa de Votação - Eleições Municipais de Pelotas 2024
+
+Este projeto é uma aplicação web interativa desenvolvida com Flask e Folium, que exibe um mapa com a geolocalização das seções eleitorais da cidade de Pelotas, RS, durante as eleições municipais de 2024. O aplicativo permite visualizar os resultados de votos dos vereadores por local de votação.
+
+## Funcionalidades
+
+- Visualização de um mapa interativo com a geolocalização de cada seção eleitoral.
+- Exibição de votos totais e por candidato em cada seção.
+- Filtros para selecionar o candidato e visualizar sua votação.
+
+## Tecnologias Utilizadas
+
+- **Flask**: Framework web para criar a aplicação.
+- **Folium**: Biblioteca para gerar mapas interativos.
+- **Pandas**: Para manipulação e análise dos dados dos votos.
+- **HTML/CSS**: Para a estrutura e estilo das páginas.
+
+## Como Rodar o Projeto Localmente
+
+### Requisitos
+
+- Python 3.8 ou superior.
+- Dependências do projeto.
+
+### Passos
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/viajaum/mapas.git
+   cd seu_repositorio
